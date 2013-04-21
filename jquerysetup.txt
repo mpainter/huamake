@@ -1,0 +1,41 @@
+For the next thing, I want to demonstrate, I want to use a mouse for my program to receive input from the user.  While handling mouse events is possible in native Javascript, javascript libraries make the task a lot easier.  So, I will use one.  JQuery seems to have the most momemtum.  So, I will use that one.  
+
+This will be the first hub in another series.  In this first hub, I will just get things, setup.  Putting a dot where the user clicks should be sufficient to get the mechanics I will want for the next hub, in place.
+
+jQuery setup is covered in lots of other places.  The only twist I am adding is to merge it in with the graphing calculator application I developed and explained in my last series.  Later I will expand how the user interacts with the graph using jQuery.
+
+First I add a style for the target of mouse events.
+
+.mousetarget { position: absolute; top:50; left:50; z-index: 2; opacity: "0%"; cursor:pointer; }
+
+Next, I include the jQuery library.  The commented out inclusion is to retrieve the jQuery library from a public server, but I want to be able to work while off-line.  So, I made a local copy.  The 1.4.4 and 1.4.2 are version numbers.  The latest is 1.5.1, as of this writing, but I doubt it will matter for what I want to do.
+
+</style>
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>-->
+<script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+
+I add a container for the mouse target style.
+
+<div id="mousetarget" class="mousetarget" ></div>
+
+Finally, I add some script to do what I want; put a dot where the user clicks:
+
+<script type="text/javascript" >
+$( document ).ready( function () {
+	alert( "hello jquery world!" );
+	$( "#mousetarget" ).css( "top", unitsquare.screeny1 );
+	$( "#mousetarget" ).css( "left", unitsquare.screenx0 );
+	$( "#mousetarget" ).height( unitsquare.screeny0 - unitsquare.screeny1 );
+	$( "#mousetarget" ).width( unitsquare.screenx1 - unitsquare.screenx0 );
+	$( "#mousetarget" ).bind( "click", function (e) {
+		drawrectangle( "blackrectangle", e.clientY + 2, e.clientX - 2, 4, 4 );
+	});
+});
+</script>
+
+The alert just lets me know everything is setup ok.  No typos that keep javascript from running, etc.  $ is the cryptic version of the jQuery function.  "#mousetarget" is an id based selector, that describes what DOM element I want jQuery to opperate on.
+
+The jQuery function includes lots of methods that do useful things.  I only used four of them: css, height, width and bind.  I'm not sure why the "top" and "left" style properties don't have their own functions, like height and width do.  bind associates a function with mouse-click events, if the mouse is over my target object when it is clicked.  drawrectangle is a function I wrote and explained in my previous series of hubs.  Anyway, it is what puts a black square where the user clicked.
+
+
+

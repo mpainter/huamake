@@ -1,0 +1,13 @@
+There is a certain amusing irony to making javascript draw in circles.  There also interesting points to be made about drawing circles both in regard to programming an Mathematics.
+
+I will use line drawing, from a previous hub, to render the circle on the screen.
+
+I will use coordinate mapping, also from a previous hub, so that I can make the simplifying assumption that I am drawing a unit circle (radius of one unit).
+
+There are many ways to interpolate the points on a curve in order to render the curve on graph, or simply to provide some other computer processable representation of the curve.  The method I chose is obvious, and straight forward.  I simply compute two adjacent points on the curve, and draw a line between them.  This usually works well enough when the adjacent points are reasonably close on the screen.  I did optimize this slightly.  I compute an adjacent point further down the curve until I find two with different screen coordinates, before drawing a line.
+
+The function, jgdrawcurve, performs the selection of points to interpolate, and renders the lines between them.  Its first argument is a function that computes a path in two dimensions.  Here the javascript term "function" and its mathematical counterpart mean slightly different things. The mathematical meaning of a function in 2 dimensions is that given an x value, the function will have a unique y value. Given that definition, a circle can't be described by a 2-d function.  So, I use a path function; given a distance along a path, return the x and y value of the point on the path, at that distance. A circle is a path in 2-d space.
+
+The actual formula for the path requires me to recall some trigonometry.  The projection of an angle along the x axis is cos(x), and sin(x) for the projection onto the y axis.
+
+With that, here goes!

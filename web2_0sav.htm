@@ -1,0 +1,124 @@
+﻿<!-- Copyright 2009, 2010 Mark Painter, permission to use for non-commercial purposes granted, provided this notice is included -->
+<html>
+<head>
+<title>Character Structures</title>
+<link href="./web2_0.css" rel="stylesheet" type="text/css" />
+<script src="./web2_0util.js" language="javascript"></script>
+<script src="./pinyinmarks.js" language="javascript"></script>
+<script src="./hancharfunc.js" language="javascript"></script>
+<script src="./web2_0.js" language="javascript"></script>
+<script type="text/javascript"><!--
+google_ad_client = "pub-6690138268530140";
+
+/* 234x60, created 4/9/10 */
+google_ad_slot = "2596959366";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+</head>
+<body onLoad="javascript:initpage();" background="web2_0bkg.JPG" >
+<form name="userinput" onSubmit="checkSubmit()" >
+<!-- <script language="javascript">
+alert( "bar" );
+initpage();
+</script> -->
+<h1><span class="headline">Characters that contain:
+<b id="commonelement" ></b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
+</script></h1>
+<div id="curchar" class="chargroup" >
+<div class="charrow">
+<p class="displayarea">
+<span id="charhead"></span>
+<span id="thechar" class="displaychar">Loading...</span>
+<span id="chartail"></span>
+</p>
+<p id="thecharcode" ></p>
+<p>Enter Hanzi:<input type="text" value="" size="3" onkeypress="javascript:mygetKey( this );"/>
+</p>
+<p><input type="checkbox" checked="false" name="chardef" id="chardef" onclick="javascript:mycheck( this );"/> Display Definition
+</p>
+<p><input type="checkbox" checked="false" name="charpro" id="charpro"onclick="javascript:mycheck( this );"/> Display Pronounciation
+</p>
+</div>
+<div class="charrow" >
+<p><span id="curprev" class="charlink" >
+&lt;previous
+</span>
+<span id="curnext" class="charlink">
+next&gt;
+</span></p>
+</div>
+<div id="charlist"></div>
+</div>
+<div class="othercomplist"><p><b>Other Components</b></p>
+<div id="otherelements" ></div></div>
+<div id="sideinfo" >
+<div id="definition" >
+some words
+</div>
+<div id="pronounciation" >
+Loading...
+</div>
+<div id="usage" >
+Loading...
+</div>
+<div id="etomology" >
+Loading...
+</div>
+<div id="howtodraw" >
+Loading...
+</div>
+<p><b>Links to suplementary information on this site:</b></p>
+<span class="sourcelink">
+Characters used in the: <a href="ABCDLists.htm"> old HSK</a>,<a href="1to6Lists.htm"> new HSK</a>;<br/>
+</span>
+<span class="sourcelink">
+<a href="HSKVocabIndex.htm">HSK vocabulary indexed by character</a>;<br/>
+</span>
+<span class="sourcelink">
+<a href="radicalfrequencyD.htm">Radicals used in HSK vocabulary by number of occurances</a>
+</span>
+<p><b>Links to sources:</b></p>
+<span class="sourcelink">
+<a href="http://www.amazon.com/Reading-Writing-Chinese-Simplified-Character/dp/0804835098/ref=sr_1_2?ie=UTF8&s=books&qid=1268603690&sr=8-2">Reading and Writing Chinese, Simplified Character Edition</a>;<br/>
+</span>
+<span class="sourcelink">
+<a href="http://www.chinaeducenter.com/cecdl/HSK_Vocabulary_List.pdf">An HSK vocabulary list</a>;<br/>
+</span>
+<span class="sourcelink">
+<a href="http://www.zhongwen.com">Zhongwen.com</a>;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>
+<span class="sourcelink">
+<a href="http://www.mdbg.net/chindict">MDBG</a>;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>
+<span class="sourcelink">
+<a href="http://www.internationalscientific.org/CharacterASP/CharacterEtymology.aspx">Internationalscientific.org</a>
+</span>
+<p>I am developing this page as a study aid for studying Chinese writing, using simplified characters.  Especially, as a study aid to prepare for the Hanyu Shuiping Kaoshi (HSK).
+</p>
+<p>So far, I have tested this page with Firefox mostly.</p>
+<p><a href="http://sites.google.com/site/markpainterhomepage/">Mark Painter</a></p> 
+</div>
+<input type="submit" style="visibility:hidden" onClick="checkSubmit()" />
+<input type="hidden" name="theChar" value="" />
+</form>
+<div style="visibility:hidden" >
+<form id="csform" action="http://chinesepod.com/search/index/advanced" method="post" target="cpodsearch">
+<input type="text" name="search" />
+<input type="checkbox" name="dialgexp" value="1" checked />
+<input type="submit" />
+</form>
+</div>
+<div class="charcontrol" >
+<div class="charlink" onmouseover="javascript:converttree(document,false);" onmouseout="javascript:converttree(document,true);">
+繁體字
+</div>
+Mouse over to glimpse this page using Traditional Chinese.
+<p><a href="./huamakefaq.htm">Help</a></p>
+<p><a href="http://huamake.com/contact_us">Contact Us</a></p>
+</div>
+</body>
+</html>

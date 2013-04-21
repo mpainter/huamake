@@ -1,0 +1,125 @@
+﻿<meta name="description" content="This is a Web application for look up of Chinese Characters according to their graphical appearance." />
+<!-- Copyright 2010, 2011 Mark Painter, permission to use for non-commercial purposes granted, provided this notice is included -->
+<html>
+<head>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20721025-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<title>Study Aid for Chinese Characters</title>
+<link href="./web2_0.css" rel="stylesheet" type="text/css" />
+<link href="./css/ui-lightness/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
+<link href="./css/jquery.treeTable.css" rel="stylesheet" type="text/css" />
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>-->
+<script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./js/jquery-ui-1.8.6.custom.min.js"></script>
+<script type="text/javascript"><!--
+google_ad_client = "pub-6690138268530140";
+
+/* 234x60, created 4/9/10 */
+google_ad_slot = "2596959366";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript" src="./home.js" ></script>
+</head>
+<body background="web2_0bkg.JPG" >
+<div id="guanggao" ><script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
+</script></div>
+<div id="tablist">
+<ul id="tablist-nav" >
+<li><a href="#baseindex">Find</a></li>
+<li><a href="#onechar">Examine</a></li>
+<li><a href="#newhsk">New HSK Vocab</a></li>
+<li><a href="#oldhsk">Old HSK Vocab</a></li>
+<li><a href="#components">Components</a></li>
+<li><a href="#hancharconvert">Convert</a></li>
+<li><a href="#discuss">Discuss</a></li>
+<li><a href="#faq">Help</a></li>
+</ul>
+</div>
+<div id="baseindex" class="pagecontainer"></div>
+<div id="onechar" class="pagecontainer"></div>
+<div id="newhsk" class="pagecontainer">
+</div>
+<div id="oldhsk" class="pagecontainer">
+</div>
+<div id="components" class="pagecontainer">
+</div>
+<div id="hancharconvert" class="pagecontainer"></div>
+<div id="discuss" class="pagecontainer"></div>
+<div id="faq" class="pagecontainer"></div>
+
+<script language="javascript">
+$(document).ready( function() { 
+
+	var tmpStr;
+	var tmpInt;
+	var thePage = "baseindexnew";
+	var theFunc = function() { };
+
+	tmpStr = window.location.search.substring(1);
+	tmpInt = tmpStr.indexOf( "thePage" );
+	if( tmpInt != -1 ) {
+		tmpStr = tmpStr.substr( tmpInt + 8 );
+		pend = tmpStr.indexOf( "&" );
+		if( pend >= 0 ) {
+			thePage = tmpStr.substr( 0, pend );
+		} else {
+			thePage = tmpStr;
+		}
+	} 
+	//alert( thePage );
+	$( '<div><img src="./bricks.gif" style="position:absolute;top:300;left:300" /></div>' ).attr( 'id', 'workingonit').hide().appendTo( "body" );
+	$( document ).ajaxComplete( function() { huamake.sequence() } );
+	huamake.loadpage( thePage );
+	$( "#tablist" ).tabs();
+	$( ".pagecontainer" ).hide();
+	if( thePage == "web2_0new" ) {
+		$( "#tablist" ).tabs( "select", "onechar" );
+		$( "#onechar" ).show();
+	} else if ( thePage == "hancharconvertnew" ) {
+		$( "#tablist" ).tabs( "select", "hancharconvert" );
+		$( "#hancharconvert" ).show();
+	} else if ( thePage == "baseindexnew" ) {
+		$( "#tablist" ).tabs( "select", "baseindex" );
+		$( "#baseindex" ).show();
+	} else if ( thePage == "1to6Listsnew" ) {
+		$( "#tablist" ).tabs( "select", "newhsk" );
+		$( "#newhsk" ).show();
+	} else if ( thePage == "huamakefaqnew" ) {
+		$( "#tablist" ).tabs( "select", "faq" );
+		$( "#faq" ).show();
+	} else if ( thePage == "discussionnew" ) {
+		$( "#tablist" ).tabs( "select", "discuss" );
+		$( "#discuss" ).show();
+	} else if ( thePage == "ABCDListsnew" ) {
+		$( "#tablist" ).tabs( "select", "oldhsk" );
+		$( "#ABCDListsnew" ).show();
+	} else if ( thePage == "radicalfrequencyDnew" ) {
+		$( "#tablist" ).tabs( "select", "components" );
+		$( "#components" ).show();
+	}
+	$( "#tablist" ).bind( 'tabsselect', huamake.changetab );
+	huamake.watchdog();
+
+
+
+	//alert( "hello jQuery world." ); 
+
+} );
+</script>
+</body>
+</html>

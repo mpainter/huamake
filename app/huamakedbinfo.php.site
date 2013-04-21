@@ -1,0 +1,17 @@
+<?php
+class huamakedbinfo {
+	private $info;
+	
+	function __construct () {
+		$this->info[ 'dbname' ] = "testdb2";
+		$this->info[ 'pdbname' ] = "testdb2";
+		$this->info[ 'dbuser' ] = "wendell";
+		$this->info[ 'dbpasswd' ] = "bek2000";
+		$this->info[ 'dbhost' ] = "mysql";
+	}
+	function getAttr( $key ) {
+		$rval = $this->info[ $key ];
+		return( $rval );
+	}
+}
+?>

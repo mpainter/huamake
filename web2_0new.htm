@@ -1,0 +1,81 @@
+﻿<!-- Copyright 2009, 2010 Mark Painter, permission to use for non-commercial purposes granted, provided this notice is included -->
+<html>
+<head>
+<title>Character Structures</title>
+</head>
+<body onLoad="javascript:initpage();" background="web2_0bkg.JPG" >
+<div><form name="userinput" action="./home.htm" onSubmit="checkSubmit()" >
+<!-- <script language="javascript">
+alert( "bar" );
+initpage();
+</script> -->
+<h1><span class="headline">Characters that contain:
+<b id="commonelement" ></b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+<div id="curchar" class="chargroup" >
+<div class="charrow">
+<p class="displayarea">
+<span id="charhead"></span>
+<span id="thechar" class="displaychar">Loading...</span>
+<span id="chartail"></span>
+</p>
+<p id="thecharcode" ></p>
+<p>Enter Hanzi:<input type="text" value="" size="3" onkeypress="javascript:mygetKey( this );"/>
+</p>
+<p><input type="checkbox" checked="false" name="chardef" id="chardef" onclick="javascript:mycheck( this );"/> Display Definition
+</p>
+<p><input type="checkbox" checked="false" name="charpro" id="charpro" onclick="javascript:mycheck( this );"/> Display Pronounciation
+</p>
+<p style="visibility:hidden"><input type="checkbox" checked="false" name="godeep" id="godeep" onclick="javascript:mycheck( this );"/> When a character is clicked, make it the current element
+<input type="hidden" name="thePage" value="web2_0new" /></p>
+
+</div>
+<div class="charrow" >
+<p><span id="curprev" class="charlink" >
+&lt;previous
+</span>
+<span id="curnext" class="charlink">
+next&gt;
+</span></p>
+</div>
+<div id="charlist"></div>
+</div>
+<div class="othercomplist"><p><b>Other Components</b></p>
+<div id="otherelements" ></div></div>
+<div id="sideinfo" >
+<div id="definition" >
+some words
+</div>
+<div id="pronounciation" >
+Loading...
+</div>
+<div id="usage" >
+Loading...
+</div>
+<div id="etomology" >
+Loading...
+</div>
+<div id="howtodraw" >
+Loading...
+</div>
+</div>
+<input type="submit" style="visibility:hidden" onClick="checkSubmit()" />
+<input type="hidden" name="theChar" value="" />
+</form></div>
+<div style="visibility:hidden" >
+<form id="csform" action="http://chinesepod.com/search/index/advanced" method="post" target="cpodsearch">
+<input type="text" name="search" />
+<input type="checkbox" name="dialgexp" value="1" checked />
+<input type="submit" />
+</form>
+</div>
+<div class="charcontrol" >
+<div class="charlink" onmouseover="javascript:converttree(document,false);" onmouseout="javascript:converttree(document,true);">
+繁體字
+</div>
+Mouse over to glimpse this page using Traditional Chinese.
+</div>
+<div id="demoanim1" class="animdemo3"><img src="./mao-6.jpg" />This character is the next in the chain we are looking for.  So, we will click on it.</div>
+<div id="demoanim2" class="animdemo3"><img src="./mao-7.jpg" />Now, we will look for the whole character. When we find it, we will click on it to get its pronounciation and meaning.</div>
+<div id="demoanim3" class="animdemo3"><img src="./mao-7.jpg" />Next, we will go back and you can try again on your own.</div>
+<div id="demoanim4" class="animdemo3"><img src="./mao-7.jpg" />Going back to the find tab.</div></body>
+</html>

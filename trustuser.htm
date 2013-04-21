@@ -1,0 +1,33 @@
+<!-- Copyright 2010 Mark Painter, permission to use for non-commercial purposes granted, provided this notice is included -->
+<html>
+<head>
+<title>Feedback on a Study Aid for Chinese Characters</title>
+<link href="./web2_0.css" rel="stylesheet" type="text/css" />
+<link href="./css/ui-lightness/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<!--<script type="text/javascript" src="./js/jquery-1.4.2.min.js">-->
+<script type="text/javascript" src="./js/jquery-ui-1.8.6.custom.min.js"></script>
+<script type="text/javascript"><!--
+//-->
+</script>
+<script type="text/javascript" src="./home.js" ></script>
+</head>
+<body background="web2_0bkg.JPG" >
+<form action="./app/huamaketrustuser.php" enctype="multipart/form-data" method="post" >
+<table width="100%">
+<tr><td><input type="hidden" name="parent" value="3" /><input type="text" name="username" /> </td><td>Your screen name</td></tr>
+<tr><td><input type="text" name="email" /></td><td>Your email (won't be shown)</td></tr>
+<tr><td><input type="text" name="captcha" /></td><td>(The question is an attempt to distinguish humans from bots.)</td></tr>
+<tr><td><input type="text" name="secret" /></td><td>(optional, won't be displayed.) If you send a secret string, other's won't be able to use your screen name, but if you forget it, you will just have to be someone else.</td></tr>
+<tr><td><input type="text" name="trust" /></td>
+<td>1= trust, 0 = not trust</td></tr>
+<tr><td><input type="text" name="usertotrust" /></td>
+<td>Screen name of user to trust/not trust</td></tr>
+<tr><td><input type="text" name="messagetotrust" /></td>
+<td>Screen id of message to trust/not trust</td></tr>
+<tr><td><input type="submit"  /></td><td></td></tr>
+</table>
+</form>
+
+</body>
+</html>

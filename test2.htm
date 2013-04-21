@@ -1,0 +1,94 @@
+<html>
+<head>
+<style type="text/css" >
+.whiterectangle { color: white; background-color: white; z-index: 0;}
+.blackrectangle { color: black; background-color: black; z-index: 1;}
+</style>
+<script type="text/javascript" >
+function drawrectangle( myclass, top, left, width, height )
+{
+	var bodylist = document.getElementsByTagName( "body" );
+	var rect = document.createElement( "div" );
+	var mystyle = 'position:absolute;top:' + top + ";left:" + left + ';width:' + width + ";height:" + height;
+	rect.setAttribute( "class", myclass );
+	rect.setAttribute( "style", mystyle );
+	bodylist[0].appendChild( rect );
+}
+
+function drawline( width, x1, y1, x2, y2 )
+{
+	var x, y, nexty, nextx;
+
+	// ensure x1, y1 is leftmost point
+	if( x1 > x2 ) {
+		tmp = x2;
+		x2 = x1;
+		x1 = tmp;
+		tmp = y2;
+		y2 = y1;
+		y1 = tmp;
+	}
+	var dx = x2 - x1;
+	var dy = y2 - y1;
+
+	if( dy == 0 ) { // horizontal line
+		drawrectangle( "blackrectangle", y1 - width / 2, x1, dx, width );
+		return;
+	} else if ( dx == 0 ) { // vertical line
+		drawrectangle( "blackrectangle", y1, x1 - width / 2, width, dy );
+		return;
+	}
+	var slope = dy / dx;
+	if( slope > 1 || slope < -1 ) {
+		// one x per multiple y
+		if( y1 < y2 ) {
+			y = y1;
+			for( x = x1 ; x < x2 ; x += 1 ) {
+				nexty = y + slope;
+				drawrectangle( "blackrectangle", y, x - width / 2, width, nexty - y );
+				y = nexty;
+			}
+		} else {
+			y = y1;
+			for( x = x1 ; x < x2 ; x += 1 ) {
+				nexty = y + slope;
+				drawrectangle( "blackrectangle", nexty, x - width / 2, width, y - nexty );
+				y = nexty;
+			}
+		}
+
+	} else {
+		// one y per multiple x
+		if( y1 < y2 ){
+			x = x1;
+			for( y = y1 ; y < y2 ; y += 1 ) {
+				nextx = x + 1 / slope;
+				drawrectangle( "blackrectangle", y - width / 2, x, nextx - x, width );
+				x = nextx;
+			}
+		} else {
+			x = x2;
+			for( y = y2 ; y < y1 ; y += 1 ) {
+				nextx = x + 1 / slope;
+				drawrectangle( "blackrectangle", y - width / 2, nextx, x - nextx, width );
+				x = nextx;
+			}
+		}
+	}
+		
+	
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" >
+drawrectangle( "whiterectangle", 0, 0, "100%", "100%" );  // make a background rectangle, not necessary with default browser settings
+drawline( 4, 110, 50, 400, 60 );
+drawline( 4, 110, 50, 120, 100 );
+drawline( 4, 110, 50, 100, 100 );
+drawline( 4, 110, 50, 400, 40 );
+drawline( 4, 500, 50, 500, 100 );
+drawline( 4, 475, 75, 525, 75 );
+</script>
+</body>
+</html>

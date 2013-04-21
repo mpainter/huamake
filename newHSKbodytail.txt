@@ -1,0 +1,8 @@
+<div style="visibility:hidden" >
+<form id="csform" action="http://chinesepod.com/search/index/advanced" method="post" target="cpodsearch">
+<input type="text" name="search" />
+<input type="checkbox" name="dialgexp" value="1" checked />
+<input type="submit" />
+</form>
+
+</div>

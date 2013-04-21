@@ -1,0 +1,13 @@
+The previous article in this series covered drawing lines in Javascript.  This article adds another tool, mapping of coordinates.
+
+It often comes up that the coordinate system used on your computer screen is not the same as the coordinate system for the problem you are working on.  So, there is frequently an need to map between coordinate systems in order to draw a picture of your problem.
+
+I could have done this by writing a function that takes ten parameters, four to describe the screen coordinates, four to describe the coordinates of my problem, and two to describe the point that I want to map to the screen.  However, I choose instead to store the description of the screen and problem coordinates in an object, and just pass the x and y values of the point I wish to map to a method of that object.
+
+I used the Javascript prototype mechanism to make it possible to base other, similar objects on this one.
+
+In the example, I drew two lines from (-1,-1) to (1,1), but varied the screen coordinates that they map to.  The result is one long line starting in the lower left and rising, which is a more conventional mapping.  The second line is shorter, starts in the upper left corner and falls to the right, because in this coordinate system greater values of y map to points that are lower on the screen.
+
+I didn't demonstrate it, but changing values of an instance of the jgcoordinates will not change the defaults for subsequent new instances.
+
+The future examples in my series will make use of coordinate mapping.  If you are interested, I suggest playing around with this mechanism, some.

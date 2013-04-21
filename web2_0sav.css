@@ -1,0 +1,99 @@
+/* Copyright 2009 Mark Painter, permission to use for non-commercial purposes granted, provided this notice is included */
+/* <style type="text/css"> */
+.chargroup {
+	position: absolute;
+	top: 60px;
+	left: 200px;
+	width: 200px;
+}
+.charrow {
+
+	width: 100%;
+}
+*.displaychar {
+
+	font-size: 300%;
+	font-weight: bold;
+	text-align: center;
+	width: 200px;
+	cell-span: 2;
+
+}
+#thecharcode {
+	text-align: center;
+	width: 200px;
+}
+.chararrow {
+	width: 200px;
+}
+.charlink {
+	display: table-cell;
+	width: 100px;
+	text-align: center;
+	border-style: groove;
+	border-width: 5px;
+	background-color: blue;
+	color: white;
+}
+.otherelement {
+	display: table-cell;
+	border-style: groove;
+	border-width: 5px;
+	border-color: white;
+	background-color: white;
+	color: black;
+	width: 32px;
+ height: 40px; vertical-align: top;}
+.missingotherelement {
+	display: table-cell;
+	border-style: none;
+	border-width: 0px;
+	border-color: white;
+	color: black;
+	width: 32px;
+}
+#sideinfo {
+	position: absolute;
+	top: 100px;
+	left: 425px;
+	width: 400px;
+}
+#definition {
+	visibility: hidden;
+}
+#pronounciation {
+	visibility: hidden;
+}
+
+.hskchar {
+	font-size: 150%;
+	text-decoration: none;
+}
+.todochar {
+	background-color: white;
+}
+.curchar {
+	color: black;
+	font-size: 125%;
+}
+.listchar {
+	color: blue;
+	cursor: pointer;
+}
+.othercomplist {
+	display: table-cell;
+	width: 150px;
+}
+a {text-decoration: none;}
+a:hover{background-color:#00FF00}
+img { vertical-align:bottom; padding:0;}
+img.imglink { border:0 }
+.headline { vertical-align:top; }
+#mywordmenu {
+	border:3px solid black;
+	background-color:white;
+	visibility:hidden;
+}
+.displayarea { text-align:center; }
+.charcontrol { position:absolute; top:0; left:825px; }
+/* </style> */

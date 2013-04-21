@@ -1,0 +1,202 @@
+<?php
+
+class huamakedb {
+	private $conn;
+	private $err;
+
+	function __construct( $db, $dbuser, $dbpass ) {
+		$this->conn = mysql_connect('mysql',$dbuser, $dbpass );
+		$this->err = mysql_error( $this->conn );
+		//mysql_autocommit( $this->conn, 1 );
+		@mysql_query( "USE " . $db, $this->conn );
+	}
+	function isok() {
+		return( $this->err );
+	}
+	function setup( $db ) {
+		mysql_query( "CREATE DATABASE " . $db, $this->conn );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			return $this->err;
+		}
+		mysql_query( "USE " . $db, $this->conn );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			return $this->err;
+		}
+		mysql_query( "CREATE TABLE kehu( id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, signedupwhen TIMESTAMP, email VARCHAR(255), name VARCHAR( 255 ) UNIQUE, INDEX (name), password VARCHAR( 255 ), trusted INT DEFAULT 0 ) type=InnoDB;", $this->conn );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo mysql_error( $this->conn );
+			return $this->err;
+		}
+		mysql_query( "CREATE TABLE comments( id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, parent INT, enteredwhen TIMESTAMP, userid INT, FOREIGN KEY (userid) REFERENCES kehu (id), body TEXT, approved INT DEFAULT 0, subject VARCHAR(255) DEFAULT \"\" ) type=InnoDB;", $this->conn );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo mysql_error( $this->conn );
+			return( $this->err );
+		}
+		mysql_query( "CREATE TABLE notes( id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, messageid INT, FOREIGN KEY (messageid) REFERENCES comments (id), topic VARCHAR(255) ) type=InnoDB;", $this->conn );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo mysql_error( $this->conn );
+			return( $this->err );
+		}
+		mysql_query( "CREATE TABLE captcha ( id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, question VARCHAR( 255 ), answer VARCHAR(255) ) type=InnoDB;", $this->conn );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo mysql_error( $this->conn );
+			return( $this->err );
+		}
+
+		mysql_query( "START TRANSACTION;", $this->conn );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			return( $this->err );
+		}
+		return $this->err;
+	}
+	function open( $db, $dbuser, $dbpass ) {
+		mysql_query( "COMMIT" );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo $this->err;
+			return( $this->err );
+		}
+		return $this->err;
+		if( $this->conn ) {
+			$this->close();
+		}
+		$this->conn = mysql_connect('127.0.0.1',$dbuser, $dbpass );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo mysql_error( $this->conn );
+			return $this->err;
+		}
+		mysql_query( "USE " . $db, $this->conn );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo mysql_error( $this->conn );
+			return $this->err;
+		}
+	}
+	function close() {
+		mysql_close( $this->conn );
+		$this->conn = 0;
+	}
+	function adduser ( $email, $passwd, $name ) {
+		$query = "INSERT INTO kehu ( email, name, password ) VALUES ( '" . $email . "', '" . $name . "', '" . $passwd . "' )";
+		mysql_query( $query );
+		//echo $query;
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo $this->err;
+			return( $this->err );
+		}
+		return 0;
+
+	}
+	function addcomment ( $email, $parentid, $comment ) {
+		$query = "INSERT INTO comments ( userid, parent, body ) VALUES ( " . "1" . ", " . $parentid . ", '" . $comment . "' )";
+		mysql_query( $query  );
+		//echo $query;
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo $this->err;
+			return( $this->err );
+		}
+		//mysql_commit( $this->conn );
+		return 0;
+	}
+	function addcomment2( $userid, $parentid, $subject, $comment, $approved ) {
+// recvdata inputs: parent, username, email, captcha, secret, subject, usermessage
+		$query = "INSERT INTO comments ( userid, parent, subject, body, approved ) VALUES ( " . $userid . ", " . $parentid . ", '" . $subject . "', '" . $comment . "', " . $approved . " )";
+		mysql_query( $query  );
+		//echo $query;
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo $this->err;
+			return( $this->err );
+		}
+		//mysql_commit( $this->conn );
+		return 0;
+	}
+	function addcaptcha ( $question, $answer ) {
+		$query = 'INSERT INTO captcha ( question, answer ) VALUES ( "' . $question . '", "' .
+			$answer . '" )';
+		mysql_query( $query );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo $this->err;
+			return( $this->err );
+		}
+		return 0;
+	}
+	function gencaptchadata( ) {
+		$digitwords = array( "zero", "one", "two", "three", "four", "five",
+			"six", "seven", "eight", "nine", "ten" );
+		$thedigits = array( "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" );
+		for( $i = 1; $i < 11 ; $i++ ) {
+			for( $j = 1; $j < 11 ; $j++ ) {
+				$question = $i . " times " . $j . "equals ??";
+				$question = str_replace( $thedigits, $digitwords, $question );
+				$answer = $i * $j;
+				$this->addcaptcha( $question, $answer );
+			}
+		}
+	}
+	function getcaptchaarray( $myqora ) {
+		$query = "select * from captcha;";
+		$this->result = mysql_query( $query );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			echo $this->err;
+			return( $this->err );
+		}
+		$row = mysql_fetch_assoc( $this->result );
+		$rval = array();
+		while ( $row ) {
+			if( $myqora ) {
+				$rval[ $row[ 'id' ] ] = $row[ 'question' ];
+			} else {
+				$rval[ $row[ 'id' ] ] = $row[ 'answer' ];
+			}
+			$row = mysql_fetch_assoc( $this->result );
+		}
+		return( $rval );
+	}
+	function getcaptchaoffset( $id ) {
+		return( ( date( "m" ) * 31 + date( "j" ) + $id ) );
+	}
+	function getcomments ( $parent, $firstcom, $lastcom ) {
+		$limit = $lastcom - $firstcom + 1;
+		$query = "SELECT comments.id, comments.userid, comments.body, comments.subject, kehu.name, comments.enteredwhen FROM comments, kehu WHERE comments.parent=" . $parent . " AND comments.userid = kehu.id order by comments.enteredwhen desc LIMIT " . $firstcom . "," . $limit . " ;";
+		$this->result = mysql_query( $query  );
+		//echo $query;
+		return $this->result;
+	}
+	function getcomment ( $myid ) {
+		$query = "SELECT comments.id, comments.userid, comments.body, comments.subject, kehu.name, comments.enteredwhen FROM comments, kehu WHERE comments.id=" . $myid . " AND comments.userid = kehu.id ;";
+		$this->result = mysql_query( $query  );
+		//echo $query;
+		return $this->result;
+	}
+	function getuserID ( $name, $email, $secret ) {
+		$query = 'SELECT * from kehu where name="' . $name . '";';
+		$this->result = mysql_query( $query );
+		$row = mysql_fetch_assoc($this->result);
+		return( $row );
+
+	}
+	function destroydb( $db ) {
+		@mysql_query( "DROP DATABASE " . $db, $this->conn );
+		$this->err = mysql_error( $this->conn );
+		if( $this->err ) {
+			return( $this->err );
+		}
+		return $this->err;
+
+	}
+
+}
+?>

@@ -1,0 +1,236 @@
+﻿<html><head><META http-equiv=Content-Type content="text/html; charset=utf-8"><title>Chinese Character Graphical Index</title><link href="./web2_0.css" rel="stylesheet" type="text/css" />
+</head><body background="web2_0bkg.JPG">
+<h1 class="huaheading" >Click on a graphic element that looks like it belongs to the Chinese character you are looking for:</h1><span><div id="fragpick" ><span class="fragpicker"><table><tbody><tr>
+<td><button id="fragback" onClick="bireset()" ><span class="ui-icon ui-icon-arrowreturnthick-1-w" ></span></button></td>
+<td>
+<button id="u4E00" onClick="getcomponentdetails( relcomp_u4E00 )">
+<span class="fragextrainfo"></span><span class="hskchar">一</span></button></td>
+<td>
+<button id="u4E09" onClick="getcomponentdetails( relcomp_u4E09 )">
+<span class="fragextrainfo"></span><span class="hskchar">三</span></button></td>
+<td>
+<button id="u4E28" onClick="getcomponentdetails( relcomp_u4E28 )">
+<span class="fragextrainfo"></span><span class="hskchar">丨</span></button></td>
+<td>
+<button id="u53E3" onClick="getcomponentdetails( relcomp_u53E3 )">
+<span class="fragextrainfo"></span><span class="hskchar">口</span></button></td>
+</tr><tr>
+<td>
+<button id="u5341" onClick="getcomponentdetails( relcomp_u5341 )">
+<span class="fragextrainfo"></span><span class="hskchar">十</span></button></td>
+<td>
+<button id="u5382" onClick="getcomponentdetails( relcomp_u5382 )">
+<span class="fragextrainfo"></span><span class="hskchar">厂</span></button></td>
+<td>
+<button id="i_531A_1" onClick="getcomponentdetails( relcomp_i_531A_1 )">
+<span class="fragextrainfo"></span><img src="./i_531A_1.bmp" /></button></td>
+<td>
+<button id="i_6BCB_2" onClick="getcomponentdetails( relcomp_i_6BCB_2 )">
+<span class="fragextrainfo"></span><img src="./i_6BCB_2.bmp" /></button></td>
+<td>
+<button id="i_4E01_1" onClick="getcomponentdetails( relcomp_i_4E01_1 )">
+<span class="fragextrainfo"></span><img src="./i_4E01_1.bmp" /></button></td>
+</tr><tr>
+<td>
+<button id="i_513F_1" onClick="getcomponentdetails( relcomp_i_513F_1 )">
+<span class="fragextrainfo"></span><img src="./i_513F_1.bmp" /></button></td>
+<td>
+<button id="i_6C34_1" onClick="getcomponentdetails( relcomp_i_6C34_1 )">
+<span class="fragextrainfo"></span><img src="./i_6C34_1.bmp" /></button></td>
+<td>
+<button id="i_4EE5_1" onClick="getcomponentdetails( relcomp_i_4EE5_1 )">
+<span class="fragextrainfo"></span><img src="./i_4EE5_1.bmp" /></button></td>
+<td>
+<button id="i_5343_1" onClick="getcomponentdetails( relcomp_i_5343_1 )">
+<span class="fragextrainfo"></span><img src="./i_5343_1.bmp" /></button></td>
+<td>
+<button id="i_6BCF_1" onClick="getcomponentdetails( relcomp_i_6BCF_1 )">
+<span class="fragextrainfo"></span><img src="./i_6BCF_1.bmp" /></button></td>
+</tr><tr>
+<td>
+<button id="i_866B_1" onClick="getcomponentdetails( relcomp_i_866B_1 )">
+<span class="fragextrainfo"></span><img src="./i_866B_1.bmp" /></button></td>
+<td>
+<button id="i_53B6_1" onClick="getcomponentdetails( relcomp_i_53B6_1 )">
+<span class="fragextrainfo"></span><img src="./i_53B6_1.bmp" /></button></td>
+<td>
+<button id="i_8F9B_1" onClick="getcomponentdetails( relcomp_i_8F9B_1 )">
+<span class="fragextrainfo"></span><img src="./i_8F9B_1.bmp" /></button></td>
+<td>
+<button id="i_4EFF_1" onClick="getcomponentdetails( relcomp_i_4EFF_1 )">
+<span class="fragextrainfo"></span><img src="./i_4EFF_1.bmp" /></button></td>
+<td>
+<button id="i_77E2_1" onClick="getcomponentdetails( relcomp_i_77E2_1 )">
+<span class="fragextrainfo"></span><img src="./i_77E2_1.bmp" /></button></td>
+</tr><tr>
+</tr></tbody></table></span></div>
+<div style="float:left;width:100%" ><span><span id="bicharlist"></span>
+<div id="catanim1" class="animdemo"><img src="./mao-1.jpg" />For example, you could start a few different places with this character.<span class="charlink" onClick="starthuademo()">Demo</span></div>
+<div id="catanim2" class="animdemo"><img src="./mao-2.jpg" />For example, you could start a few different places with this character.<span class="charlink" onClick="starthuademo()">Demo</span></div>
+<div id="catanim3" class="animdemo"><img src="./mao-3.jpg" />For example, you could start a few different places with this character.<span class="charlink" onClick="starthuademo()">Demo</span></div>
+<div id="catanim4" class="animdemo"><img src="./mao-4.jpg" />For example, you could start a few different places with this character.<span class="charlink" onClick="starthuademo()">Demo</span></div>
+<div id="demoanim1" class="animdemo2"><img src="./mao-4.jpg" />For the demonstration, we are starting with the square shape.</div>
+<div id="demoanim2" class="animdemo2"><img src="./mao-4.jpg" />If you want to start over with your search, you can now click on the back button.</div>
+<div id="demoanim3" class="animdemo2"><img src="./mao-8.jpg" />However, we will pick another part of the shape we are looking for to narrow the search.</div>
+<div id="demoanim4" class="animdemo2"><img src="./mao-5.jpg" />What we are looking for is here. We will click on it to find the rest of the character.</div>
+</span></div></span>
+<script language="javascript" >
+relcomp_u4E00 = new Array();
+relcomp_u4E00[0] = "%u4E00";
+relcomp_u4E00[1] = "i_592E_1";
+relcomp_u4E09 = new Array();
+relcomp_u4E09[0] = "%u4E09";
+relcomp_u4E09[1] = "i_8868_1";
+relcomp_u4E09[2] = "i_5510_1";
+relcomp_u4E09[3] = "i_6625_1";
+relcomp_u4E09[4] = "i_5BD2_1";
+relcomp_u4E28 = new Array();
+relcomp_u4E28[0] = "%u4E28";
+relcomp_u4E28[1] = "%u535C";
+relcomp_u4E28[2] = "i_9AD8_1";
+relcomp_u4E28[3] = "i_76D1_1";
+relcomp_u4E28[4] = "i_575A_1";
+relcomp_u4E28[5] = "i_4F73_1";
+relcomp_u4E28[6] = "i_6068_1";
+relcomp_u53E3 = new Array();
+relcomp_u53E3[0] = "%u53E3";
+relcomp_u53E3[1] = "i_54C7_1";
+relcomp_u5341 = new Array();
+relcomp_u5341[0] = "%u5341";
+relcomp_u5341[1] = "%u5EFE";
+relcomp_u5341[2] = "%u8279";
+relcomp_u5341[3] = "i_8005_1";
+relcomp_u5341[4] = "i_5750_1";
+relcomp_u5341[5] = "i_725B_1";
+relcomp_u5341[6] = "i_6241_1";
+relcomp_u5382 = new Array();
+relcomp_u5382[0] = "%u5382";
+relcomp_u5382[1] = "%u5E7F";
+relcomp_u5382[2] = "%u531A";
+relcomp_u5382[3] = "i_75D5_1";
+relcomp_u5382[4] = "i_6709_1";
+relcomp_u5382[5] = "i_65A4_1";
+relcomp_u5382[6] = "i_89C1_1";
+relcomp_i_531A_1 = new Array();
+relcomp_i_531A_1[0] = "%u531A";
+relcomp_i_531A_1[1] = "i_753B_1";
+relcomp_i_531A_1[2] = "i_6BCB_1";
+relcomp_i_531A_1[3] = "i_8981_1";
+relcomp_i_531A_1[4] = "i_7F72_1";
+relcomp_i_531A_1[5] = "i_514D_1";
+relcomp_i_6BCB_2 = new Array();
+relcomp_i_6BCB_2[0] = "i_6BCB_2";
+relcomp_i_6BCB_2[1] = "%u4EBA";
+relcomp_i_6BCB_2[2] = "%u516B";
+relcomp_i_6BCB_2[3] = "%u6208";
+relcomp_i_6BCB_2[4] = "%u5EFE";
+relcomp_i_6BCB_2[5] = "i_6709_1";
+relcomp_i_6BCB_2[6] = "i_8005_1";
+relcomp_i_6BCB_2[7] = "i_5188_1";
+relcomp_i_6BCB_2[8] = "i_8D70_1";
+relcomp_i_6BCB_2[9] = "i_9F7F_1";
+relcomp_i_6BCB_2[10] = "i_5F69_1";
+relcomp_i_6BCB_2[11] = "i_5377_1";
+relcomp_i_6BCB_2[12] = "i_6625_1";
+relcomp_i_4E01_1 = new Array();
+relcomp_i_4E01_1[0] = "i_4E01_1";
+relcomp_i_4E01_1[1] = "i_6302_1";
+relcomp_i_4E01_1[2] = "%u5200";
+relcomp_i_4E01_1[3] = "%u5202";
+relcomp_i_4E01_1[4] = "%u5F13";
+relcomp_i_4E01_1[5] = "%u4E86";
+relcomp_i_4E01_1[6] = "i_53EF_1";
+relcomp_i_4E01_1[7] = "i_62A5_1";
+relcomp_i_4E01_1[8] = "i_6BCB_1";
+relcomp_i_4E01_1[9] = "i_5018_1";
+relcomp_i_4E01_1[10] = "i_6241_1";
+relcomp_i_4E01_1[11] = "i_8003_1";
+relcomp_i_513F_1 = new Array();
+relcomp_i_513F_1[0] = "i_513F_1";
+relcomp_i_513F_1[1] = "%u4E59";
+relcomp_i_513F_1[2] = "%u51E0";
+relcomp_i_513F_1[3] = "%u5DF3";
+relcomp_i_513F_1[4] = "%u6208";
+relcomp_i_513F_1[5] = "i_94C5_1";
+relcomp_i_513F_1[6] = "i_98DE_1";
+relcomp_i_513F_1[7] = "i_6258_1";
+relcomp_i_6C34_1 = new Array();
+relcomp_i_6C34_1[0] = "i_6C34_1";
+relcomp_i_6C34_1[1] = "%u53C8";
+relcomp_i_6C34_1[2] = "%u4E86";
+relcomp_i_6C34_1[3] = "i_793C_1";
+relcomp_i_6C34_1[4] = "i_888D_1";
+relcomp_i_6C34_1[5] = "i_5404_1";
+relcomp_i_6C34_1[6] = "i_575A_1";
+relcomp_i_6C34_1[7] = "i_4E88_1";
+relcomp_i_6C34_1[8] = "i_5EFA_1";
+relcomp_i_6C34_1[9] = "i_4E70_1";
+relcomp_i_6C34_1[10] = "i_9662_1";
+relcomp_i_4EE5_1 = new Array();
+relcomp_i_4EE5_1[0] = "i_4EE5_1";
+relcomp_i_4EE5_1[1] = "%u8BA0";
+relcomp_i_4EE5_1[2] = "%u6208";
+relcomp_i_4EE5_1[3] = "i_8863_1";
+relcomp_i_4EE5_1[4] = "i_98DE_1";
+relcomp_i_4EE5_1[5] = "i_9971_1";
+relcomp_i_4EE5_1[6] = "i_94A2_1";
+relcomp_i_5343_1 = new Array();
+relcomp_i_5343_1[0] = "i_5343_1";
+relcomp_i_5343_1[1] = "i_65A4_1";
+relcomp_i_5343_1[2] = "i_6258_1";
+relcomp_i_5343_1[3] = "i_7EB2_1";
+relcomp_i_5343_1[4] = "i_884C_1";
+relcomp_i_5343_1[5] = "i_72E0_1";
+relcomp_i_6BCF_1 = new Array();
+relcomp_i_6BCF_1[0] = "i_6BCF_1";
+relcomp_i_6BCF_1[1] = "i_94A2_1";
+relcomp_i_6BCF_1[2] = "i_5C14_1";
+relcomp_i_6BCF_1[3] = "i_5B83_1";
+relcomp_i_6BCF_1[4] = "i_9971_1";
+relcomp_i_6BCF_1[5] = "i_6545_1";
+relcomp_i_866B_1 = new Array();
+relcomp_i_866B_1[0] = "i_866B_1";
+relcomp_i_866B_1[1] = "i_65E2_1";
+relcomp_i_866B_1[2] = "%u53B6";
+relcomp_i_53B6_1 = new Array();
+relcomp_i_53B6_1[0] = "i_7EB2_1";
+relcomp_i_53B6_1[1] = "i_8F66_1";
+relcomp_i_53B6_1[2] = "%u53B6";
+relcomp_i_8F9B_1 = new Array();
+relcomp_i_8F9B_1[0] = "i_8F9B_1";
+relcomp_i_8F9B_1[1] = "i_5E78_1";
+relcomp_i_8F9B_1[2] = "i_6CE8_1";
+relcomp_i_8F9B_1[3] = "i_8FDC_1";
+relcomp_i_8F9B_1[4] = "i_5018_2";
+relcomp_i_8F9B_1[5] = "%u8BA0";
+relcomp_i_8F9B_1[6] = "i_716E_1";
+relcomp_i_8F9B_1[7] = "i_6B21_1";
+relcomp_i_4EFF_1 = new Array();
+relcomp_i_4EFF_1[0] = "i_4EFF_1";
+relcomp_i_4EFF_1[1] = "%u6208";
+relcomp_i_4EFF_1[2] = "%u5E7F";
+relcomp_i_4EFF_1[3] = "";
+relcomp_i_4EFF_1[4] = "i_75D5_1";
+relcomp_i_4EFF_1[5] = "i_5B83_1";
+relcomp_i_4EFF_1[6] = "i_888D_1";
+relcomp_i_4EFF_1[7] = "i_793C_1";
+relcomp_i_77E2_1 = new Array();
+relcomp_i_77E2_1[0] = "i_77E2_1";
+relcomp_i_77E2_1[1] = "i_6CE8_1";
+relcomp_i_77E2_1[2] = "i_6B21_1";
+relcomp_i_77E2_1[3] = "i_716E_1";
+relcomp_i_77E2_1[4] = "i_7B11_1";
+relcomp_i_77E2_1[5] = "i_76D1_1";
+relcomp_i_77E2_1[6] = "i_5B66_1";
+relcomp_i_77E2_1[7] = "i_5018_2";
+relcomp_i_77E2_1[8] = "i_5E78_1";
+$(document).ready( function() {
+	if( demoanimationsteps.active == undefined ) {
+		$( ".animdemo" ).hide();
+		$( ".animdemo2" ).hide();
+		demoanimationsteps.active = true;
+		animatedemo( -1, demoanimationsteps, 1000 );
+	}
+});
+ </script>
+</body></html>

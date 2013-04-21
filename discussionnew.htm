@@ -1,0 +1,50 @@
+﻿<!-- Copyright 2010 Mark Painter, permission to use for non-commercial purposes granted, provided this notice is included -->
+<html>
+<head>
+<title>Feedback on a Study Aid for Chinese Characters</title>
+</head>
+<body background="web2_0bkg.JPG" >
+<table id="commentbox" class="centeredblock" ><caption><h1>Recent Topics</h1></caption>
+<thead><th>Conversation Thread</th><th>User Name</th><th>Comment</th></thead>
+<tbody id="commentbody">
+</tbody></table>
+<div id="actionrow-template" style="dislplay:none" >
+<td colspan="3">
+<span onClick="gonextcomment( this, 0 )" class="charlink">&lt;more recent</span><span onClick="gonextcomment( this, 1 )" class="charlink" >older&gt;</span><span class="charlink" onClick="getresponseform( this )" style="width:240" >Start a new conversation thread</span>
+</td>
+</div>
+<div id="response-template" style="display:none" >
+<form action="./app/huamakesend.php" enctype="multipart/form-data" method="post" >
+<table width="100%">
+<tr><td><input type="hidden" name="parent" value="3" /><input type="text" name="username" /> <input type="hidden" name="showall" value="no" /></td><td>Your screen name</td></tr>
+<tr><td><input type="text" name="email" /></td><td>Your email (won't be shown)</td></tr>
+<tr><td><input type="text" name="captcha" /></td><td>(The question is an attempt to distinguish humans from bots.)</td></tr>
+<tr><td><input type="text" name="secret" /></td><td>(optional, won't be displayed.) If you send a secret string, other's won't be able to use your screen name, but if you forget it, you will just have to be someone else.</td></tr>
+<tr><td><input type="text" name="subject" /></td><td>The subject of your message</td></tr>
+<tr><td colspan="2"><span><textarea rows="15" cols="50" name="usermessage" ></textarea></td></tr>
+<tr><td><span class="charlink" onClick="postcomment( this )" >Post Comment</span></td></tr>
+</table>
+</form>
+</div>
+<script language="javascript">
+$(document).ready( function() { 
+
+	if( !commentsloaded ) {
+
+		loadhuamakecomments("#commentbox", 0, 0 );
+		//setTimeout( function() {$( "#commentbox" ).treeTable( {initialState:"collapsed"}); }, 5000 );
+		//$( "#commentbox" ).find("commentbody").each().wrap( "<td />" );
+		++commentsloaded;
+	}
+
+	//alert( "hello jQuery world." ); 
+
+} );
+</script>
+<!-- tests for expander style sheets
+<p>x<span class="expander" style="padding-left: 19px; margin-left: -19px;width:19px;background-image: url(../images/toggle-expand-dark.png);" jQuery1292796908970="9"></span>y</p>
+<p>x<span class="expander expanderup" style="padding-left: 19px; margin-left: -19px;" jQuery1292796908970="9"></span>y</p>
+<p>x<span class="expander expanderdown" style="padding-left: 19px; margin-left: -19px;" jQuery1292796908970="9"></span>y</p>
+-->
+</body>
+</html>

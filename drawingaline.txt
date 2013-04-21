@@ -1,0 +1,16 @@
+There was a comment on my earlier hub about drawing rectangles in Javascript, that it could be done in an HTML 5 canvas element.  Aside from the fact that HTML 5 is not yet ubiquitously deployed, an anticipated similar comment about this hub, misses the point that my intention is to talk about the drawing of lines and that Javascript simply provides a medium for describing the process of drawing a line on a computer.
+
+Drawing lines is an interesting programming excercise, because it is surprisingly complex.  While a line is a continuous entity, it has to be mapped to pixels, which are descrete rectangles on the screen.  This mapping requires floating point arithmetic to calculate the points along the line, and integer arithmetic to map the line to pixels on the screen.  The calculation involves loops to calculate all of the points along the line, and conditions to take into account different drawing approaches for different categories of line slope.
+
+I drew six lines to test the correctness of the code: slanted up, mostly horizontal; slanted down, mostly horizontal; slanted right, mostly verticle; slanted left, mostly vertical, purely veritical; and purely horizontal.  These six types of lines all require slightly different algorithms to draw.
+
+There is also a human factors component to drawing lines.  They have to look like proper lines to us.  This influences how line drawing algorithms place pixels.
+
+Javascript is a dynamically typed language, meaning that it chooses the type for a variable based on context and what data is stored in that variable.  In this example program, it mostly seems to do the right thing.  So, I haven't had to add code to round off floating point numbers to integers, etc, but as I develop more examples, this will come up.
+
+Another comment, on an earlier hub about learning programming on your own, suggested that I needed to intruduce concepts in an orderly squence and build upon the basics in order to provide an accessable tutorial.  I may be lazy about this.  The point is well taken, but it also missinterprets my intention, somewhat.  There are lots of good tutorials already on the net.  I am not trying to supplant them, just give some pointers that someone might want to research on their own.
+
+I remember a professor once asked his class, "Who thinks you're here to learn from me?".  We all raised our hands.  He responded, "You're wrong.  If everyone just learns from someone else, the end result would be eventual ignorance, because the transmition of knowlegde is imperfect.  You are here to learn things that I don't know."
+
+There may be some applications for drawing lines in Javascript in the way that my example program does, but that is not my main intent.  I hope it is simply fun and interesting to someone else.  I plan to build some more complex examples from this.
+

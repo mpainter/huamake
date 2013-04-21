@@ -1,0 +1,60 @@
+﻿<!-- Copyright 2009, 2010 Mark Painter, permission to use for non-commercial purposes granted, provided this notice is included -->
+<html>
+<head>
+<title>Convert Simplified and Traditional Chinese Characters</title>
+<link href="./web2_0.css" rel="stylesheet" type="text/css" />
+<!--<script src="./hancharmaps.js" language="javascript"></script>-->
+<script src="./hancharfunc.js" language="javascript"></script>
+<script language="javascript" >
+function texttosimp()
+{
+
+	textnode = document.getElementById( "usertext" );
+	if( textnode ) {
+		textnode.value = converttrad( textnode.value );
+	}
+}
+
+function texttotrad()
+{
+
+	textnode = document.getElementById( "usertext" );
+	if( textnode ) {
+		textnode.value = convertsimp( textnode.value );
+	}
+}
+</script>
+<script type="text/javascript"><!--
+google_ad_client = "pub-6690138268530140";
+
+/* 234x60, created 4/9/10 */
+google_ad_slot = "2596959366";
+google_ad_width = 234;
+google_ad_height = 60;
+//-->
+</script>
+</head>
+<body background="web2_0bkg.JPG" onload="javascript:inithanconvert();">
+<div>Enter your Simplified(简体字） or Traditional（繁体字） Chinese text here:</div>
+<form name="userinput" >
+<textarea name="usertext" id="usertext" rows="15" cols="80" >
+</textarea>
+<div  style="text-align:center;align=center">
+<p><span id="tosimp" class="charlink" onclick="javascript:converttree(document,true);">
+简体字 &lt;Convert to Simplified
+</span>
+<span id="totrad" class="charlink" onclick="javascript:converttree(document,false);">
+繁体字 Convert to Traditional&gt;
+</span>
+<span style="display:table-cell;align:right;width:150px" ><a href="./web2_0.htm">Home</a></div></span></p>
+</form>
+<p>
+<!--
+<script language="javascript" >
+	document.write( JSON.stringify( simptotrad ) );
+	document.write( JSON.stringify( tradtosimp ) );
+</script>
+-->
+</p>
+</body>
+</html>

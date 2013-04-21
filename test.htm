@@ -1,0 +1,26 @@
+<html>
+<head>
+<style type="text/css" >
+.whiterectangle { color: white; background-color: white; z-index: 0;}
+.blackrectangle { color: black; background-color: black; z-index: 1;}
+</style>
+<script type="text/javascript" >
+function drawrectangle( myclass, top, left, width, height )
+{
+	var bodylist = document.getElementsByTagName( "body" );
+	var rect = document.createElement( "div" );
+	var mystyle = 'position:absolute;top:' + top + ";left:" + left + ';width:' + width + ";height:" + height;
+	rect.setAttribute( "class", myclass );
+	rect.setAttribute( "style", mystyle );
+	bodylist[0].appendChild( rect );
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" >
+drawrectangle( "whiterectangle", 0, 0, "100%", "100%" );  // make a background rectangle, not necessary with default browser settings
+drawrectangle( "blackrectangle", 50, 50, 10, 100 );  // draw a black rectangle on top
+drawrectangle( "blackrectangle", 50, 100, 1, 1 ); // draw a dot (pixel)
+</script>
+</body>
+</html>

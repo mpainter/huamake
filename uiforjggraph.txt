@@ -1,0 +1,13 @@
+In this Hub, I am going to try to put a UI on my graphing calculator, and I am going to run into an instructive difficulty.
+
+The first part is easy.  I added a form to my page to accept input from the user.  I will need a equation for each of the x and y coordinates, and start, end and mesh size for the path.  For graphs, the equation for x will just be, x.
+
+I will bring out another powerful tool, eval, to evaluate the equation the user enters.  This isn't too bad as long as the user knows enough javascript syntax to write an expression.  So, I have to write sin(x) as "Math.sin(x)", for example.  I could do some things to make this nicer, or put more effort into my UI to give the user some calculator buttons and generate the expressions within my code.
+
+The difficulty comes when I want to use my integration and differentiation functions.  There is no existing function for differentiating, or integrating, my expression.  I need two things to happen. I need the differentiation function to be created, then I need for that function to be called with the evaluation of every point on the path.  The code for doing that is a bit too complex to just write in an expression and pass to eval.  It seems I will need to parse the expression and create the required functions, first.  I guess that is a good topic for my next hub in this series.
+
+Meanwhile lets look at the function, jggraph.  It works well enough on expressions that only require built-in javascript fuctionality.  It converts the formulas given by the user into javascript functions using eval, then combines them into a javascript function for computing the path function, scales the coordinate space, and finally calls drawcurve to render the graph.
+
+I should mention there are some hazards to letting the user type in data that is going to be passed to eval.  The user can enter any javascript code here, and can do whatever they want that javascript can do.  If I put my calculator up on a public web site, it will therefore be open to reflected javascript injection attacks.  In general, a user can alter, or destroy my program with this mechanism.  In this context, I am not concerned about this, but I should give an advisory, in case you will want to use eval in other contexts.
+
+j

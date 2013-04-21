@@ -1,0 +1,100 @@
+﻿<html>
+<!--<script languange="Javascript" src="newhsk6.js" />-->
+<script language="Javascript" src="newhsk6.js" ></script>
+<script language="Javascript" >
+function findcpodlesson( thechar ) 
+{
+		document.forms[ "csform" ].search.value = thechar;
+		document.forms[ "csform" ].submit(); 
+}
+function wordmenu( theword, thechargbk, e )
+{
+	//alert( theword );
+	//position
+	menu = document.getElementById( "mywordmenu" );
+	if( menu ) {
+		menu.style.position = "absolute";
+		menu.style.top = e.clientY;
+		menu.style.left = e.clientX;
+		menu.style.visibility = "visible";
+	}
+	curparent = document.getElementById( "theword" );
+	//alert( curparent );
+	if( curparent.childNodes.length > 0 ) {
+		curchar = curparent.firstChild.nodeValue;
+		//alert( curchar );
+		//curparent.firstChild.nodeValue = nextchar;
+		curparent.innerHTML = theword;
+	} else {
+		curparent.innerHTML = theword;
+	}
+	curparent = document.getElementById( "thecpodlink" );
+	thelink = "<a href=\"javascript:findcpodlesson(\'" + theword + "\')\"  >" + "<img src=\"http://chinesepod.com//images/icons/favicon.ico\" class=\"imglink\"></a>"
+	//alert( curparent );
+	if( curparent.childNodes.length > 0 ) {
+		curchar = curparent.firstChild.nodeValue;
+		curparent.innerHTML = thelink;
+	} else {
+		curparent.innerHTML = thelink;
+	}
+}
+function getMouseXY(e) {
+  if (IE) { // grab the x-y pos.s if browser is IE
+    tempX = event.clientX + document.body.scrollLeft
+    tempY = event.clientY + document.body.scrollTop
+  } else {  // grab the x-y pos.s if browser is NS
+    tempX = e.pageX
+    tempY = e.pageY
+  }  
+  // catch possible 
+}
+</script>
+<style type="text/css" >
+img.imglink { border: 0 }
+#mywordmenu {
+	border:3px solid black;
+	background-color:white;
+	visibility:hidden;
+}
+</style>
+<head>
+</head>
+<body>
+<script language="Javascript" >
+	document.write( hskchars[100] + "\n" );
+	document.write("Your browser\'s dimensions are: ");
+	if (window.innerWidth) //if browser supports window.innerWidth
+		document.write(window.innerWidth+" by "+window.innerHeight);
+	else if (document.all) //else if browser supports document.all (IE 4+)
+		document.write(document.body.clientWidth+" by " +document.body.clientHeight);
+	document.write("  Your scroll position is: ");
+	if (window.innerWidth) //if browser supports window.innerWidth
+		document.write(window.pageXOffset+", "+window.pageYOffset);
+	else if (document.all) //else if browser supports document.all (IE 4+)
+		document.write(document.body.scrollLeft +", " +document.body.scrollTop );
+	else
+		document.write( "missing" );
+
+</script>
+<div id="mywordmenu" class="wordmenustyle" >
+<p id="theword">行</p>
+<p id="thecpodlink" >cpod</p>
+</div>
+<div style="visibility:hidden" >
+<form id="csform" action="http://chinesepod.com/search/index/advanced" method="post" target="cpodsearch">
+<input type="text" name="search" />
+<input type="checkbox" name="dialgexp" value="1" checked />
+<input type="submit" />
+</form>
+</div>
+
+<script language="Javascript" >
+<!--
+	for( i = 0 ; i < 100 /* hskchars.length */ ; ++i ) {
+		document.write( "<a href=\"javascript:findcpodlesson(\'" + hskchars[i] + "\')\" onMouseOver=\"javascript:wordmenu(\'" + hskchars[i] + "\',\'\', event )\" >" + hskchars[i] + "<img src=\"http://chinesepod.com//images/icons/favicon.ico\" class=\"imglink\"></a>&nbsp;&nbsp;" );
+	}
+-->      
+</script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+﻿/* Copyright 2009 Mark Painter, permission to use for non-commercial purposes granted, provided this notice is included */
+/* <style type="text/css"> */
+.chargroup {
+	position: absolute;
+	top: 60px;
+	left: 200px;
+	width: 200px;
+}
+.charrow {
+
+	width: 100%;
+}
+*.displaychar {
+
+	font-size: 300%;
+	font-weight: bold;
+	text-align: center;
+	width: 200px;
+	cell-span: 2;
+
+}
+#thecharcode {
+	text-align: center;
+	width: 200px;
+}
+.chararrow {
+	width: 200px;
+}
+.charlink {
+	display: table-cell;
+	width: 100px;
+	text-align: center;
+	border-style: groove;
+	border-width: 5px;
+	background-color: blue;
+	color: white;
+}
+.otherelement {
+	display: table-cell;
+	border-style: groove;
+	border-width: 5px;
+	border-color: white;
+	background-color: white;
+	color: black;
+	width: 32px;
+ height: 40px; vertical-align: top;}
+.missingotherelement {
+	display: table-cell;
+	border-style: none;
+	border-width: 0px;
+	border-color: white;
+	color: black;
+	width: 32px;
+}
+#sideinfo {
+	position: absolute;
+	top: 100px;
+	left: 425px;
+	width: 400px;
+}
+#definition {
+	visibility: hidden;
+}
+#pronounciation {
+	visibility: hidden;
+}
+
+.hskchar {
+	font-size: 150%;
+	text-decoration: none;
+}
+.todochar {
+	background-color: white;
+}
+.curchar {
+	color: black;
+	font-size: 125%;
+}
+.listchar {
+	color: blue;
+	cursor: pointer;
+}
+.othercomplist {
+	display: table-cell;
+	width: 150px;
+}
+a {text-decoration: none; }
+a {color:blue !important;}
+a:hover{background-color:#00FF00}
+img { vertical-align:bottom; padding:0;}
+img.imglink { border:0 }
+.headline { vertical-align:top; }
+#mywordmenu {
+	border:3px solid black;
+	background-color:white;
+	visibility:hidden;
+}
+.displayarea { text-align:center; }
+.charcontrol { position:absolute; top:60; left:825px; }
+.pagecontainer { position:relative; top:0; left:0; }
+#guanggao { position:absolute; top:65; left:700px; z-index:100; }
+.huaheading { width:675px; }
+#workingonit { 
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 50;
+	background: url('bricks.gif') no-repeat center center;
+}
+#huaerrorbox { 
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 50;
+	background-color: grey;
+}
+.centeredblock {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+.tt-level1 {
+	background-color: #FFDEAD;
+}
+
+.tt-level2 {
+	background-color: #EECFA1;
+}
+
+.tt-level3 {
+	background-color: #CDB38B;
+}
+
+.tt-level4 {
+	background-color: #CD8500;
+}
+
+.animdemo {
+	text-align: center;
+	position: absolute;
+	top: 150;
+	left: 500;
+}
+
+.animdemo2 {
+	text-align: center;
+	position: absolute;
+	top: 50;
+	left: 500;
+}
+.animdemo3 {
+	text-align: center;
+	position: absolute;
+	top: 300;
+	left: 500;
+}
+.animtext {
+	background-color: red;
+	color: red;
+	opacity:0.2;
+	filter:alpha(opacity=20);
+}
+/* </style> */
